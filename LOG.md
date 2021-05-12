@@ -31,7 +31,8 @@ npm install -D lint-staged
   }
 },
 "lint-staged": {
-  "src/**/*.{js,vue}": ["prettier --write", "eslint --cache --fix", "git add"]
+  "src/**/*.{js,vue}": ["prettier --write", "eslint --cache --fix", "git add"],
+  "*": ["git add"]
 }
 ```
 
