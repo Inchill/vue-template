@@ -3,8 +3,22 @@
   "version": "1.0.0",
   "description": "a vue template project.",
   "main": "main.js",
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src": [
+      "prettier --write",
+      "eslint --cache --fix",
+      "git add"
+    ]
+  },
   "scripts": {
-    "test": "jest"
+    "test": "",
+    "prepare": "husky install",
+    "precommit": "eslint src"
   },
   "repository": {
     "type": "git",
@@ -20,5 +34,21 @@
   "bugs": {
     "url": "https://github.com/Inchill/vue-template/issues"
   },
-  "homepage": "https://github.com/Inchill/vue-template#readme"
+  "homepage": "https://github.com/Inchill/vue-template#readme",
+  "devDependencies": {
+    "@commitlint/cli": "^12.1.1",
+    "@commitlint/config-conventional": "^12.1.1",
+    "@typescript-eslint/eslint-plugin": "^4.23.0",
+    "@typescript-eslint/parser": "^4.23.0",
+    "cz-conventional-changelog": "^3.3.0",
+    "eslint": "^7.26.0",
+    "eslint-plugin-vue": "^7.9.0",
+    "husky": "^6.0.0",
+    "lint-staged": "^11.0.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
 }
