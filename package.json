@@ -1,0 +1,24 @@
+{
+  "name": "vue-template",
+  "version": "1.0.0",
+  "description": "a vue template project.",
+  "main": "main.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/Inchill/vue-template.git"
+  },
+  "keywords": [
+    "vue",
+    "template",
+    "cli"
+  ],
+  "author": "Inchill",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Inchill/vue-template/issues"
+  },
+  "homepage": "https://github.com/Inchill/vue-template#readme"
+}
