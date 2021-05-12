@@ -1,3 +1,5 @@
 public/*.html
 .eslintrc.js
 commitlint.config.js
+postcss.config.js
+package.json
