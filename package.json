@@ -21,7 +21,10 @@
     "precommit": "eslint",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -w -r 0",
     "changelog:auto": "auto-changelog",
-    "version": "auto-changelog -p && git add CHANGELOG.md"
+    "version": "auto-changelog -p && git add CHANGELOG.md",
+    "build:dev": "webpack --config ./build/webpack.dev.js",
+    "build:prod": "webpack --config ./build/webpack.prod.js",
+    "dev": "webpack-dev-server --config ./build/webpack.dev.js"
   },
   "repository": {
     "type": "git",
@@ -49,8 +52,13 @@
     "cz-conventional-changelog": "^3.3.0",
     "eslint": "^7.26.0",
     "eslint-plugin-vue": "^7.9.0",
+    "html-webpack-plugin": "^5.3.1",
     "husky": "^6.0.0",
-    "lint-staged": "^11.0.0"
+    "lint-staged": "^11.0.0",
+    "webpack": "^5.37.0",
+    "webpack-cli": "^4.7.0",
+    "webpack-dev-server": "^3.11.2",
+    "webpack-merge": "^5.7.3"
   },
   "config": {
     "commitizen": {
