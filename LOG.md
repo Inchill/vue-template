@@ -94,3 +94,17 @@ module.exports = {
 ```shell
 npm i -g gitmoji-cli
 ```
+
+## webpack5
+
+安装 `webpack-dev-server`:
+
+```shell
+npm i webpack-dev-server -D
+```
+
+添加脚本命令：
+
+```json
+"dev": "webpack serve --config ./build/webpack.dev.js"
+```

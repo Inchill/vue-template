@@ -24,7 +24,7 @@
     "version": "auto-changelog -p && git add CHANGELOG.md",
     "build:dev": "webpack --config ./build/webpack.dev.js",
     "build:prod": "webpack --config ./build/webpack.prod.js",
-    "dev": "webpack-dev-server --config ./build/webpack.dev.js"
+    "dev": "webpack serve --config ./build/webpack.dev.js"
   },
   "repository": {
     "type": "git",
