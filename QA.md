@@ -85,11 +85,13 @@ npm install -g commitizen
 commitizen init cz-conventional-changelog --save --save-exact
 ```
 
-然后使用 git cz 命令 代替 git comit 来提交git说明：
+然后使用 git cz 命令 代替 git commit 来提交git说明：
 
 ```shell
 git cz
 ```
+
+之前我们的 git 提交步骤是 git add -> git commit -m "msg" -> git push，现在除了 git add 和 git push 这两步，可以把 git commit 变得更加规范了。
 
 ### Commitizen校验
 
