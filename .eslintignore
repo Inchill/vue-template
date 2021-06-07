@@ -1,7 +1,2 @@
 public/*.html
 dist
-build
-.eslintrc.js
-commitlint.config.js
-postcss.config.js
-package.json
