@@ -307,3 +307,19 @@ new webpack.DefinePlugin({
   __VUE_PROD_DEVTOOLS__: false,
 })
 ```
+
+## 使用 vuex
+
+首先安装 vuex4.0 版本：
+
+```shell
+npm i vuex@4 -S
+```
+
+然后在 store 文件夹下新建 index.ts、state.ts、getters.ts、actions.ts、mutations.ts、mutation-types.ts 文件。
+
+## 配置 axios
+
+## 配置 mock-server
+
+## 支持 js 开发模式

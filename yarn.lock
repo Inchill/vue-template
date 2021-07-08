@@ -21,7 +21,7 @@
   "resolved" "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/@babel/compat-data/-/compat-data-7.14.0.tgz?dl=https%3A%2F%2Frepo.huaweicloud.com%2Frepository%2Fnpm%2F%40babel%2Fcompat-data%2F-%2Fcompat-data-7.14.0.tgz"
   "version" "7.14.0"
 
-"@babel/core@^7.0.0", "@babel/core@^7.0.0-0", "@babel/core@^7.12.0", "@babel/core@^7.13.0", "@babel/core@^7.14.3", "@babel/core@^7.4.0-0":
+"@babel/core@^7.14.3":
   "integrity" "sha1-U5XjBAXwd2Bn+9nPCITxW/t3Cjg="
   "resolved" "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/@babel/core/-/core-7.14.3.tgz?dl=https%3A%2F%2Frepo.huaweicloud.com%2Frepository%2Fnpm%2F%40babel%2Fcore%2F-%2Fcore-7.14.3.tgz"
   "version" "7.14.3"
@@ -1189,7 +1189,7 @@
     "eslint-scope" "^5.0.0"
     "eslint-utils" "^2.0.0"
 
-"@typescript-eslint/parser@^4.0.0", "@typescript-eslint/parser@^4.25.0":
+"@typescript-eslint/parser@^4.25.0":
   "integrity" "sha1-ayy2KFqj1Vv7JjxlBzkJGw8ZrOs="
   "resolved" "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/@typescript-eslint/parser/-/parser-4.25.0.tgz?dl=https%3A%2F%2Frepo.huaweicloud.com%2Frepository%2Fnpm%2F%40typescript-eslint%2Fparser%2F-%2Fparser-4.25.0.tgz"
   "version" "4.25.0"
@@ -3061,7 +3061,7 @@
   "resolved" "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/eslint-visitor-keys/-/eslint-visitor-keys-2.1.0.tgz?dl=https%3A%2F%2Frepo.huaweicloud.com%2Frepository%2Fnpm%2Feslint-visitor-keys%2F-%2Feslint-visitor-keys-2.1.0.tgz"
   "version" "2.1.0"
 
-"eslint@*", "eslint@^5.0.0 || ^6.0.0 || ^7.0.0", "eslint@^7.27.0":
+"eslint@^7.27.0":
   "integrity" "sha1-ZloVBtj5VlXJJ02EvXj3FmsH6cc="
   "resolved" "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/eslint/-/eslint-7.27.0.tgz?dl=https%3A%2F%2Frepo.huaweicloud.com%2Frepository%2Fnpm%2Feslint%2F-%2Feslint-7.27.0.tgz"
   "version" "7.27.0"
@@ -3379,7 +3379,7 @@
   dependencies:
     "flat-cache" "^3.0.4"
 
-"file-loader@*", "file-loader@^6.2.0":
+"file-loader@^6.2.0":
   "integrity" "sha1-uu98+OGEDfMl5DkLRISHlIDuvk0="
   "resolved" "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/file-loader/-/file-loader-6.2.0.tgz?dl=https%3A%2F%2Frepo.huaweicloud.com%2Frepository%2Fnpm%2Ffile-loader%2F-%2Ffile-loader-6.2.0.tgz"
   "version" "6.2.0"
@@ -4557,9 +4557,8 @@
   "resolved" "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/jsonfile/-/jsonfile-6.1.0.tgz?dl=https%3A%2F%2Frepo.huaweicloud.com%2Frepository%2Fnpm%2Fjsonfile%2F-%2Fjsonfile-6.1.0.tgz"
   "version" "6.1.0"
   dependencies:
-    "universalify" "^2.0.0"
-  optionalDependencies:
     "graceful-fs" "^4.1.6"
+    "universalify" "^2.0.0"
 
 "jsonparse@^1.2.0":
   "integrity" "sha1-P02uSpH6wxX3EGL4UhzCOfE2YoA="
@@ -5746,7 +5745,7 @@
   "resolved" "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/postcss-value-parser/-/postcss-value-parser-4.1.0.tgz?dl=https%3A%2F%2Frepo.huaweicloud.com%2Frepository%2Fnpm%2Fpostcss-value-parser%2F-%2Fpostcss-value-parser-4.1.0.tgz"
   "version" "4.1.0"
 
-"postcss@^8.0.0", "postcss@^8.1.0", "postcss@^8.1.10", "postcss@^8.2.15":
+"postcss@^8.1.10", "postcss@^8.2.15":
   "integrity" "sha1-sacT9hcspCfj8F7xMD3otlaDMl8="
   "resolved" "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/postcss/-/postcss-8.3.0.tgz?dl=https%3A%2F%2Frepo.huaweicloud.com%2Frepository%2Fnpm%2Fpostcss%2F-%2Fpostcss-8.3.0.tgz"
   "version" "8.3.0"
@@ -6909,7 +6908,7 @@
     "klona" "^2.0.4"
     "normalize-path" "^3.0.0"
 
-"stylus@^0.54.8", "stylus@>=0.52.4":
+"stylus@^0.54.8":
   "integrity" "sha1-PaPmWWa8Vnp7BEv+DuzmU+CZ0Uc="
   "resolved" "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/stylus/-/stylus-0.54.8.tgz?dl=https%3A%2F%2Frepo.huaweicloud.com%2Frepository%2Fnpm%2Fstylus%2F-%2Fstylus-0.54.8.tgz"
   "version" "0.54.8"
@@ -7344,7 +7343,7 @@
   dependencies:
     "@vue/devtools-api" "^6.0.0-beta.10"
 
-"vue@^3.0.0", "vue@^3.0.11", "vue@3.0.11":
+"vue@^3.0.11":
   "integrity" "sha1-yC+VlMv03MhpJB1MjdPgjZqPS18="
   "resolved" "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/vue/-/vue-3.0.11.tgz?dl=https%3A%2F%2Frepo.huaweicloud.com%2Frepository%2Fnpm%2Fvue%2F-%2Fvue-3.0.11.tgz"
   "version" "3.0.11"
@@ -7461,7 +7460,7 @@
     "source-list-map" "^2.0.1"
     "source-map" "^0.6.1"
 
-"webpack@^4.0.0 || ^5.0.0", "webpack@^4.27.0 || ^5.0.0", "webpack@^5.0.0", "webpack@^5.37.0", "webpack@>=2":
+"webpack@^5.37.0":
   "integrity" "sha512-yvdhgcI6QkQkDe1hINBAJ1UNevqNGTVaCkD2SSJcB8rcrNNl922RI8i2DXUAuNfANoxwsiXXEA4ZPZI9q2oGLA=="
   "resolved" "https://registry.npmjs.org/webpack/-/webpack-5.37.0.tgz"
   "version" "5.37.0"
