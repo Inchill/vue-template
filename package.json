@@ -3,11 +3,6 @@
   "version": "1.0.0",
   "description": "a vue template project.",
   "main": "main.ts",
-  "husky": {
-    "hooks": {
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-    }
-  },
   "lint-staged": {
     "src": [
       "prettier --write",
