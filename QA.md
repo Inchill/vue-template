@@ -320,6 +320,14 @@ npm i vuex@4 -S
 
 ## 配置 axios
 
+axios 是基于 promise 的 http 库，可运行在浏览器端和 node.js 中。他有很多优秀的特性，例如拦截请求和响应、取消请求、转换json、客户端防御XSRF等。所以我们的尤大大也是果断放弃了对其官方库 vue-resource 的维护，直接推荐我们使用 axios 库。
+
+
+
 ## 配置 mock-server
 
 ## 支持 js 开发模式
+
+## 参考文档
+
+[vue中Axios的封装和API接口的管理](https://juejin.cn/post/6844903652881072141)
