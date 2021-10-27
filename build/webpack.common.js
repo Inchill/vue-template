@@ -1,6 +1,7 @@
 const path = require('path')
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
 const VueLoaderPlugin = require('vue-loader').VueLoaderPlugin
 
@@ -8,7 +9,7 @@ function resolve (dir) {
   return path.resolve(__dirname, '../', dir)
 }
 
-module.exports = {
+module.exports =  {
   entry: {
     app: resolve('src/main.ts')
   },
@@ -21,10 +22,11 @@ module.exports = {
     new webpack.DefinePlugin({
       __VUE_OPTIONS_API__: false,
       __VUE_PROD_DEVTOOLS__: false,
-    })
+    }),
+    new CleanWebpackPlugin()
   ],
   output: {
-    filename: '[name].[contenthash].bundle.js',
+    filename: '[name].[contenthash:8].js',
     path: resolve('dist'),
     clean: true
   },
@@ -48,12 +50,13 @@ module.exports = {
         use: ['vue-loader']
       },
       {
-        test: /\.(png|jpg|gif)$/i,
+        test: /\.(png|jpg|jpeg|gif)$/i,
         use: [
           {
             loader: 'url-loader',
             options: {
-              limit: 10240 // Convert to base64 format when the image size is less than 10kb.
+              name: '[name].[contenthash:8].[ext]',
+              limit: 10240 // Converting to base64 format when the image size is less than 10kb.
             }
           }
         ]
@@ -62,7 +65,7 @@ module.exports = {
   },
   resolve: {
     alias: {
-      'src': resolve('src'),
+      '@': resolve('src'),
       'router': resolve('src/router'),
       'store': resolve('src/store'),
       'pages': resolve('src/pages'),
@@ -72,6 +75,6 @@ module.exports = {
       'dist': resolve('dist'),
       'vue': 'vue/dist/vue.esm-bundler.js'
     },
-    extensions: ['.ts', '.tsx', '.vue', '.js', '.jsx', '.json']
+    extensions: ['.ts', '.vue', '.tsx', '.js', '.jsx', '.json']
   }
 }

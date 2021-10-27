@@ -322,9 +322,162 @@ npm i vuex@4 -S
 
 axios 是基于 promise 的 http 库，可运行在浏览器端和 node.js 中。他有很多优秀的特性，例如拦截请求和响应、取消请求、转换json、客户端防御XSRF等。所以我们的尤大大也是果断放弃了对其官方库 vue-resource 的维护，直接推荐我们使用 axios 库。
 
+分为了两部分：一是 axios 封装部分，二是业务 API 部分。封装部分通过一个单独的 http.ts 文件进行代码编写。业务 API 放在一个文件夹里管理，里面包含域名管理文件 base-url.ts、api 统一出口文件 index,ts，当项目需要区分不同模块时，可以将某一组关联的 API 单独放在一个文件里。
+
+在封装 axios 的时候，遇到了这样一些 ts 问题。
+
+1. 第三方组件库没有 ts 声明文件
+
+对于 401、403、404 状态，需要给用户进行提示，这时候用到了 at-ui 的 message 组件，使用的时候是按需引入的。
+
+```js
+import { Message } from 'at-ui'
+```
+
+由于 at-ui 没有提供 ts 声明文件，所以就需要自己去给它编写声明文件。首先在 types 目录下新建 at-ui.d.ts 文件，内容如下：
+
+```ts
+declare module 'at-ui' {
+  const Message: any
+}
+```
+
+源码里面暴露出的 Message 是一个函数：
+
+```js
+const Message = options => {
+  // ... 省略代码
+
+  const instance = new MessageConstructor({
+    data: options
+  })
+
+  // ... 省略代码
+
+  // 返回关闭方法，用于手动消除
+  return function () {
+    instance.vm.close(id)
+  }
+}
+```
+
+所以声明文件里的 Message 类型还可以声明为 Function。
+
+2. 使用 localStorage 报错
+
+使用 localStorage 获取某个对象时，会提示如下 ts 错误，原因在于 JSON.parse() 函数接收的参数是 string 类型，而 getItem() 获取到的值可能为 null。
+
+```js
+let token = JSON.parse(localStorage.getItem('token'))
+```
+
+```shell
+Argument of type 'string | null' is not assignable to parameter of type 'string'.
+  Type 'null' is not assignable to type 'string'.ts(2345)
+```
+
+解决方式是对 parse 参数进行处理，一种是单独定义一个变量并声明类型：
+
+```js
+const value: string | any = localStorage.getItem('token')
+const token = JSON.parse(value)
+```
+
+另一种方式是使用 !，意思是显示告知 ts 推断类型时，这个变量一定存在。
+
+```js
+const value = localStorage.getItem('token')
+const token = JSON.parse(value!)
+```
+
+3. 使用 axios 提供的 ts 声明
+
+```js
+import Axios, { AxiosRequestConfig, AxiosResponse } from 'axios'
+```
+
+可以对请求头配置进行更改，也可以对响应内容进行处理。
+
+4. 配置 webpack 别名
+
+webpack 配置如下：
+
+```js
+  resolve: {
+    alias: {
+      '@': resolve('src'),
+      'src': resolve('src'),
+      'router': resolve('src/router'),
+      'store': resolve('src/store'),
+      'pages': resolve('src/pages'),
+      'components': resolve('src/components'),
+      'common': resolve('src/common'),
+      'public': resolve('public'),
+      'dist': resolve('dist'),
+      'vue': 'vue/dist/vue.esm-bundler.js'
+    },
+    extensions: ['.ts', '.tsx', '.vue', '.js', '.jsx', '.json']
+  }
+```
+
+在引入其它文件的时候，按照如下方式引用，没有任何提示：
+
+```js
+import { ACCESS_TOKEN } from '@/common/ts/constants'
+```
+
+而且还报了如下错误：
+
+```shell
+Cannot find module '@/common/ts/constants' or its corresponding type declarations.
+```
+
+这是因为 ts 提示的错误，因此还需要在 tsconfig.json 里添加如下配置：
+
+```json
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    }
+  }
+}
+```
+
+必须要指定 baseUrl，这样才能从根目录开始查找。
+
+5. 使用 router 重定向
+
+根据响应状态码来进行页面重定向：
+
+```js
+case 401:
+  router.replace({
+    path: '/login'
+  })
+  break
+case 404:
+  Message({
+    message: '网络请求不存在',
+    type: 'warning',
+    duration: 1000
+  })
+  router.replace({
+    path: '/not-found'
+  })
+  break
+```
+
+## 配置 mockjs
+
+使用 mockjs，需要根据环境配置何时开启。具体的步骤如下：
+
+1. 配置环境变量 MOCK，通过配置 npm scripts 命令进行传递；
+
+2. webpack 打包时获取到 MOCK 变量，根据值来加载 mock 文件，在 webpack 配置文件里完成这些操作。
 
 
-## 配置 mock-server
 
 ## 支持 js 开发模式
 
